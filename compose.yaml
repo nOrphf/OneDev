@@ -5,23 +5,10 @@ services:
     hostname: onedev01
     restart: always
     volumes:
-        #- <>:/var/run/docker.sock
+        - <>:/var/run/docker.sock
         - onedev01_vol:/opt/onedev
-    #network_mode: host
-    networks:
-      nox.4tw.dk:
-        ipv4_address: 10.10.81.14
+    network_mode: host
     image: 1dev/server
-
-networks:
-  nox.4tw.dk:
-    external: true
 
 volumes:
   onedev01_vol:
-    name: onedev01_vol
-    driver: local
-    driver_opts:
-      type: nfs4
-      o: "addr=10.10.81.253,nolock,soft,rw"
-      device: ":/volume2/dockerstore/onedev01/"
