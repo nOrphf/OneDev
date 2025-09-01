@@ -5,10 +5,11 @@ services:
     hostname: onedev01
     restart: always
     volumes:
-        - <>:/var/run/docker.sock
+        - /var/run/docker.sock:/var/run/docker.sock
         - onedev01_vol:/opt/onedev
     network_mode: host
     image: 1dev/server
 
 volumes:
   onedev01_vol:
+
